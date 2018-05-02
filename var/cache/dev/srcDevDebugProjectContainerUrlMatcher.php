@@ -28,21 +28,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             $canonicalMethod = 'GET';
         }
 
-        // app_login_index
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'App\\Controller\\LoginController::index',  '_route' => 'app_login_index',);
-            if ('/' === substr($pathinfo, -1)) {
-                // no-op
-            } elseif ('GET' !== $canonicalMethod) {
-                goto not_app_login_index;
-            } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'app_login_index'));
-            }
-
-            return $ret;
-        }
-        not_app_login_index:
-
         if (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#sD', $pathinfo, $matches)) {
@@ -122,20 +107,20 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // blog_home
+        // index
         if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'SensioBlogBundle:Post:index',  '_route' => 'blog_home',);
+            $ret = array (  '_controller' => 'App\\Controller\\LoginController::index',  '_route' => 'index',);
             if ('/' === substr($pathinfo, -1)) {
                 // no-op
             } elseif ('GET' !== $canonicalMethod) {
-                goto not_blog_home;
+                goto not_index;
             } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'blog_home'));
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'index'));
             }
 
             return $ret;
         }
-        not_blog_home:
+        not_index:
 
         if ('/' === $pathinfo && !$allow) {
             throw new Symfony\Component\Routing\Exception\NoConfigurationException();

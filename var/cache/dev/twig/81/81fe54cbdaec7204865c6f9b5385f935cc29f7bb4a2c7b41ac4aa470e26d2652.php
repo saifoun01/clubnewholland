@@ -31,7 +31,7 @@ class __TwigTemplate_df068cef844fd15d71cea6a280f4b302390602eff40ba5751a336733004
             echo "at ";
             echo ((twig_get_attribute($this->env, $this->source, (isset($context["trace"]) || array_key_exists("trace", $context) ? $context["trace"] : (function () { throw new Twig_Error_Runtime('Variable "trace" does not exist.', 2, $this->source); })()), "class", array()) . twig_get_attribute($this->env, $this->source, (isset($context["trace"]) || array_key_exists("trace", $context) ? $context["trace"] : (function () { throw new Twig_Error_Runtime('Variable "trace" does not exist.', 2, $this->source); })()), "type", array())) . twig_get_attribute($this->env, $this->source, (isset($context["trace"]) || array_key_exists("trace", $context) ? $context["trace"] : (function () { throw new Twig_Error_Runtime('Variable "trace" does not exist.', 2, $this->source); })()), "function", array()));
             echo "(";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->formatArgs(twig_get_attribute($this->env, $this->source, (isset($context["trace"]) || array_key_exists("trace", $context) ? $context["trace"] : (function () { throw new Twig_Error_Runtime('Variable "trace" does not exist.', 2, $this->source); })()), "args", array()));
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->formatArgsAsText(twig_get_attribute($this->env, $this->source, (isset($context["trace"]) || array_key_exists("trace", $context) ? $context["trace"] : (function () { throw new Twig_Error_Runtime('Variable "trace" does not exist.', 2, $this->source); })()), "args", array()));
             echo ")";
         }
         // line 4
@@ -70,7 +70,7 @@ class __TwigTemplate_df068cef844fd15d71cea6a280f4b302390602eff40ba5751a336733004
     public function getSourceContext()
     {
         return new Twig_Source("{% if trace.function %}
-at {{ trace.class ~ trace.type ~ trace.function }}({{ trace.args|format_args }})
+at {{ trace.class ~ trace.type ~ trace.function }}({{ trace.args|format_args_as_text }})
 {%- endif -%}
 {% if trace.file|default('') is not empty and trace.line|default('') is not empty %}
   {{- trace.function ? '\\n     (' : 'at '}}{{ trace.file|format_file(trace.line)|striptags|replace({ (' at line ' ~ trace.line): '' }) }}:{{ trace.line }}{{ trace.function ? ')' }}

@@ -28,27 +28,24 @@ class __TwigTemplate_27aa4550949b776e9fffca64e06fc4f8843abbd52102e3df353beff51d9
         // line 1
         if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 1, $this->source); })()), "trace", array()))) {
             // line 2
-            echo "<pre class=\"stacktrace\">
-";
-            // line 3
-            echo twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 3, $this->source); })()), "class", array());
+            echo twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 2, $this->source); })()), "class", array());
             echo ":
 ";
-            // line 4
-            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 4, $this->source); })()), "message", array()))) {
-                // line 5
-                echo twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 5, $this->source); })()), "message", array());
+            // line 3
+            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 3, $this->source); })()), "message", array()))) {
+                // line 4
+                echo twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 4, $this->source); })()), "message", array());
                 echo "
 ";
             }
-            // line 7
+            // line 6
             echo "
 ";
-            // line 8
+            // line 7
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 8, $this->source); })()), "trace", array()));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 7, $this->source); })()), "trace", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["trace"]) {
-                // line 9
+                // line 8
                 echo "  ";
                 echo twig_include($this->env, $context, "@Twig/Exception/trace.txt.twig", array("trace" => $context["trace"]), false);
                 echo "
@@ -57,9 +54,6 @@ class __TwigTemplate_27aa4550949b776e9fffca64e06fc4f8843abbd52102e3df353beff51d9
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['trace'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 11
-            echo "</pre>
-";
         }
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -81,13 +75,12 @@ class __TwigTemplate_27aa4550949b776e9fffca64e06fc4f8843abbd52102e3df353beff51d9
 
     public function getDebugInfo()
     {
-        return array (  61 => 11,  52 => 9,  48 => 8,  45 => 7,  40 => 5,  38 => 4,  34 => 3,  31 => 2,  29 => 1,);
+        return array (  49 => 8,  45 => 7,  42 => 6,  37 => 4,  35 => 3,  31 => 2,  29 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% if exception.trace|length %}
-<pre class=\"stacktrace\">
 {{ exception.class }}:
 {% if exception.message is not empty %}
     {{- exception.message }}
@@ -96,7 +89,6 @@ class __TwigTemplate_27aa4550949b776e9fffca64e06fc4f8843abbd52102e3df353beff51d9
 {% for trace in exception.trace %}
   {{ include('@Twig/Exception/trace.txt.twig', { trace: trace }, with_context = false) }}
 {% endfor %}
-</pre>
 {% endif %}
 ", "@Twig/Exception/traces.txt.twig", "C:\\xampp\\htdocs\\clubnewholland\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces.txt.twig");
     }

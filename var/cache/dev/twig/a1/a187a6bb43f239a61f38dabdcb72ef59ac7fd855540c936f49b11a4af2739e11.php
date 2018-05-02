@@ -14,6 +14,7 @@ class __TwigTemplate_0cbf32b8803ea69b89b4c89b688bcdbc38a030f9e1163f14a32dca994c4
         $this->parent = false;
 
         $this->blocks = array(
+            '__internal_d5afdb4d416834b87583c682b00d8753600b7f187c0622c823982651738f61f9' => array($this, 'block___internal_d5afdb4d416834b87583c682b00d8753600b7f187c0622c823982651738f61f9'),
         );
     }
 
@@ -72,9 +73,17 @@ class __TwigTemplate_0cbf32b8803ea69b89b4c89b688bcdbc38a030f9e1163f14a32dca994c4
             <td>
                 ";
         // line 20
-        echo twig_include($this->env, $context, "@Twig/Exception/traces.txt.twig", array("exception" => (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 20, $this->source); })())), false);
-        echo "
-            </td>
+        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 20, $this->source); })()), "trace", array()))) {
+            // line 21
+            echo "                <pre class=\"stacktrace\">";
+            // line 22
+            echo twig_escape_filter($this->env,             $this->renderBlock("__internal_d5afdb4d416834b87583c682b00d8753600b7f187c0622c823982651738f61f9", $context, $blocks), "html");
+            // line 25
+            echo "                </pre>
+                ";
+        }
+        // line 27
+        echo "            </td>
         </tr>
     </tbody>
 </table>
@@ -84,6 +93,27 @@ class __TwigTemplate_0cbf32b8803ea69b89b4c89b688bcdbc38a030f9e1163f14a32dca994c4
 
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+    }
+
+    // line 22
+    public function block___internal_d5afdb4d416834b87583c682b00d8753600b7f187c0622c823982651738f61f9($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "__internal_d5afdb4d416834b87583c682b00d8753600b7f187c0622c823982651738f61f9"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "__internal_d5afdb4d416834b87583c682b00d8753600b7f187c0622c823982651738f61f9"));
+
+        // line 23
+        echo twig_include($this->env, $context, "@Twig/Exception/traces.txt.twig", array("exception" => (isset($context["exception"]) || array_key_exists("exception", $context) ? $context["exception"] : (function () { throw new Twig_Error_Runtime('Variable "exception" does not exist.', 23, $this->source); })()), "format" => "html"), false);
+        echo "
+                ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
     }
 
@@ -99,7 +129,7 @@ class __TwigTemplate_0cbf32b8803ea69b89b4c89b688bcdbc38a030f9e1163f14a32dca994c4
 
     public function getDebugInfo()
     {
-        return array (  75 => 20,  69 => 17,  60 => 11,  56 => 10,  51 => 9,  43 => 7,  41 => 6,  34 => 4,  29 => 1,);
+        return array (  109 => 23,  100 => 22,  86 => 27,  82 => 25,  80 => 22,  78 => 21,  76 => 20,  70 => 17,  61 => 11,  57 => 10,  52 => 9,  44 => 7,  42 => 6,  35 => 4,  30 => 1,);
     }
 
     public function getSourceContext()
@@ -123,7 +153,13 @@ class __TwigTemplate_0cbf32b8803ea69b89b4c89b688bcdbc38a030f9e1163f14a32dca994c4
     <tbody id=\"trace-text-{{ index }}\">
         <tr>
             <td>
-                {{ include('@Twig/Exception/traces.txt.twig', { exception: exception }, with_context = false) }}
+                {% if exception.trace|length %}
+                <pre class=\"stacktrace\">
+                {%- filter escape('html') -%}
+                    {{- include('@Twig/Exception/traces.txt.twig', { exception: exception, format: 'html' }, with_context = false) }}
+                {% endfilter %}
+                </pre>
+                {% endif %}
             </td>
         </tr>
     </tbody>
